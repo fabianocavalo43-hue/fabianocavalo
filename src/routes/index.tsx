@@ -37,18 +37,18 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Fabiano Cavalo | Desentupidora e Encanador 24h",
+        title: "Desentupidora em Avaré e Região 24h | Fabiano Cavalo Encanador",
       },
       {
         name: "description",
         content:
-          "Desentupimento de esgoto com hidrojato, detecção de vazamento com geofone e reparos hidráulicos. 12 anos de experiência. Atendimento rápido: (14) 99902-0820.",
+          "Precisando de desentupidora em Avaré, Itaí, Arandu ou região? Fabiano Cavalo oferece desentupimento 24h, detecção de vazamento com geofone e encanador. Ligue!",
       },
-      { property: "og:title", content: "Fabiano Cavalo | Desentupidora e Encanador 24h" },
+      { property: "og:title", content: "Desentupidora em Avaré e Região 24h | Fabiano Cavalo Encanador" },
       {
         property: "og:description",
         content:
-          "Desentupimento de esgoto com hidrojato, detecção de vazamento com geofone e reparos hidráulicos. 12 anos de experiência. Atendimento rápido: (14) 99902-0820.",
+          "Precisando de desentupidora em Avaré, Itaí, Arandu ou região? Fabiano Cavalo oferece desentupimento 24h, detecção de vazamento com geofone e encanador. Ligue!",
       },
     ],
   }),
@@ -146,8 +146,48 @@ const avaliacoes = [
 ];
 
 function Index() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "PlumbingService",
+    "name": "Fabiano Cavalo | Desentupidora e Encanador Avaré",
+    "image": "https://fabianocavalo.com.br/logo.png",
+    "@id": "https://fabianocavalo.com.br/#plumbingservice",
+    "url": "https://fabianocavalo.com.br",
+    "telephone": "+5514999020820",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Avaré",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.1018,
+      "longitude": -48.9256
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Avaré, SP" },
+      { "@type": "AdministrativeArea", "name": "Arandu, SP" },
+      { "@type": "AdministrativeArea", "name": "Itaí, SP" },
+      { "@type": "AdministrativeArea", "name": "Barra Grande, Avaré, SP" },
+      { "@type": "AdministrativeArea", "name": "Cerqueira César, SP" },
+      { "@type": "AdministrativeArea", "name": "Represa de Avaré" }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Barra topo */}
       <div className="bg-deep-gradient text-deep-foreground">
         <div className="mx-auto flex max-w-6xl items-center justify-center sm:justify-between px-5 py-2 text-xs font-semibold sm:text-sm">
@@ -175,6 +215,7 @@ function Index() {
             <a href="#servicos" className="transition-colors hover:text-primary">Serviços</a>
             <a href="#estrutura" className="transition-colors hover:text-primary">Estrutura</a>
             <a href="#como" className="transition-colors hover:text-primary">Como funciona</a>
+            <a href="#cobertura" className="transition-colors hover:text-primary">Cobertura</a>
             <a href="#avaliacoes" className="transition-colors hover:text-primary">Avaliações</a>
           </nav>
           <a
@@ -198,19 +239,18 @@ function Index() {
           <div>
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-secondary">
-                <Award className="size-4" /> 12 anos de experiência
+                <Award className="size-4" /> 12 anos de experiência e confiança
               </span>
             </Reveal>
             <Reveal delay={80}>
               <h1 className="mt-6 font-display text-4xl leading-[1.05] font-extrabold sm:text-5xl lg:text-6xl">
-                Esgoto entupido?
-                <span className="mt-2 block text-secondary">A gente resolve hoje.</span>
+                Desentupidora & Encanador em Avaré e Região 24h
+                <span className="mt-3 block text-secondary text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">Esgoto entupido? Resolvemos hoje sem quebra-quebra.</span>
               </h1>
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-6 max-w-lg text-base leading-relaxed text-deep-foreground/80 sm:text-lg">
-                Desentupimento com hidrojato, detecção de vazamento com geofone eletrônico e
-                reparos em esgoto. Sem quebra desnecessária, sem sujeira e sem surpresa na conta.
+                Especialista em desentupimento com hidrojato de alta pressão, caça vazamentos com geofone eletrônico e reparos hidráulicos em geral. Atendimento rápido em toda a região.
               </p>
             </Reveal>
             <Reveal delay={240}>
@@ -376,6 +416,61 @@ function Index() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* Áreas de Atendimento */}
+      <section id="cobertura" className="bg-card py-20 md:py-28 border-t border-border">
+        <div className="mx-auto max-w-6xl px-5">
+          <Reveal>
+            <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-primary">
+              Área de Cobertura
+            </p>
+            <h2 className="mt-3 max-w-2xl font-display text-3xl font-extrabold text-deep sm:text-4xl">
+              Atendimento rápido em Avaré, cidades vizinhas e chácaras
+            </h2>
+            <p className="mt-4 max-w-xl text-base text-muted-foreground">
+              Estrutura móvel preparada para atender com rapidez chamados residenciais, comerciais, industriais e na zona rural.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Reveal delay={100}>
+              <div className="rounded-2xl border border-border bg-muted/30 p-7">
+                <span className="inline-flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <MapPin className="size-5" />
+                </span>
+                <h3 className="mt-5 font-display text-lg font-bold text-deep">Avaré - SP (Sede)</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Atendimento expresso em todos os bairros de Avaré. Chegada rápida no Centro, Bairro Alto, Barra Grande, Brabância, Paineiras, Ipiranga, Plimec, Jurumirim e demais regiões.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <div className="rounded-2xl border border-border bg-muted/30 p-7">
+                <span className="inline-flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <MapPin className="size-5" />
+                </span>
+                <h3 className="mt-5 font-display text-lg font-bold text-deep">Cidades Vizinhas</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Equipe pronta para deslocamento imediato para <strong>Arandu - SP</strong>, <strong>Itaí - SP</strong>, e <strong>Cerqueira César - SP</strong>, atendendo residências e comércios locais.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={300}>
+              <div className="rounded-2xl border border-border bg-muted/30 p-7">
+                <span className="inline-flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <MapPin className="size-5" />
+                </span>
+                <h3 className="mt-5 font-display text-lg font-bold text-deep">Chácaras e Represa</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Atendimento especializado em chácaras de lazer, sítios, fazendas e condomínios ao redor da <strong>Represa de Avaré</strong> (Jurumirim), como Riviera, Porto de Avaré e redondezas.
+                </p>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
